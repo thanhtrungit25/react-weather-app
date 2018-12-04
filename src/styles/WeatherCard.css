@@ -1,7 +1,7 @@
 :root {
   --day-color: #999;
-  --high-color: #777;
-  --low-color: #aaa;
+  --high-color: #888;
+  --low-color: #bbb;
 }
 
 /* WEATHER CARD COMPONENT */
@@ -30,13 +30,11 @@
 }
 
 .weather-card__temp-high {
-  font-size: 1.5rem;
   color: var(--high-color);
-  margin-right: 0.2rem;
+  margin-right: 0.4rem;
 }
 
 .weather-card__temp-low {
-  font-size: 1.5rem;
   color: var(--low-color);
-  margin-left: 0.2rem;
+  margin-left: 0.4rem;
 }
