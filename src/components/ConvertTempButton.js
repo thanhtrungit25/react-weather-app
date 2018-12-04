@@ -1,6 +1,6 @@
 import React from "react";
 import "../styles/ConvertTemp.css";
-class ConvertTemp extends React.Component {
+class ConvertTempButton extends React.Component {
   render() {
     const { farhenheitUnits, celciusUnits, units } = this.props;
     const fUnits = units === "F" ? "f active" : "f";
@@ -18,4 +18,4 @@ class ConvertTemp extends React.Component {
     );
   }
 }
-export default ConvertTemp;
+export default ConvertTempButton;

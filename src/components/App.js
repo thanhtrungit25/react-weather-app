@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import "../styles/default-styles.css";
 import "../styles/App.css";
 import WeatherCard from "./WeatherCard";
-import ConvertTemp from "./ConvertTemp";
+import ConvertTempButton from "./ConvertTempButton";
 import { apiKey } from "../private";
 
 class App extends Component {
@@ -11,7 +11,8 @@ class App extends Component {
     forecasts: {},
     isLoaded: false,
     error: null,
-    tempUnit: "F"
+    tempUnit: "F",
+    city: null
   };
 
   componentDidMount() {
@@ -24,6 +25,7 @@ class App extends Component {
           this.setState({
             weather: result,
             forecasts: result.list,
+            city: result.city.name,
             isLoaded: true
           });
         },
@@ -60,6 +62,7 @@ class App extends Component {
     return (
       <div className="App">
         <h1 className="title">5-Day Forecast</h1>
+        <h3 className="location">{this.state.city}</h3>
         <section className="weather-cards">
           {Object.keys(this.state.forecasts).map(key => (
             <WeatherCard
@@ -73,7 +76,7 @@ class App extends Component {
             />
           ))}
         </section>
-        <ConvertTemp
+        <ConvertTempButton
           farhenheitUnits={this.farhenheitUnits}
           celciusUnits={this.celciusUnits}
           units={this.state.tempUnit}
