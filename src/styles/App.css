@@ -37,6 +37,7 @@
 .weather-card:hover {
   background: #eee;
   cursor: pointer;
+  box-shadow: 0 0 3px orange;
 }
 
 .weather-card:first-child {

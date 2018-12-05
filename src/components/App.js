@@ -21,7 +21,7 @@ class App extends Component {
 
   getWeather = () => {
     fetch(
-      `http://api.wunderground.com/api/${apiKey}/forecast/geolookup/conditions/q/IN/Bremen.json`
+      `http://api.wunderground.com/api/${apiKey}/forecast/geolookup/conditions/q/az/phoenix.json`
     )
       .then(res => res.json())
       .then(
@@ -53,14 +53,18 @@ class App extends Component {
   };
 
   render() {
-    const { forecast, isLoaded } = this.state;
+    const { forecast, location, isLoaded } = this.state;
     console.log("forecast", forecast);
     const forecasts = forecast.simpleforecast;
 
     return (
       <div className="App">
         <h1 className="title">4-Day Forecast</h1>
-        <h3 className="location">{this.state.location.city}</h3>
+        {isLoaded && (
+          <h3 className="location">
+            {location.city}, {location.state}, {location.country}
+          </h3>
+        )}
         {!isLoaded && <h3 className="loading">Loading...</h3>}
         {isLoaded && (
           <div className="weather-cards">
